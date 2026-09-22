@@ -105,6 +105,30 @@ const API = (function () {
       return res;
     },
 
+    batchSaveMasterRecords: async function (table, records) {
+      if (!records || records.length === 0) return { success: true, count: 0 };
+      try {
+        const res = await request(BASE_URL, {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'batchSaveMasterRecords',
+            table: table,
+            records: records
+          })
+        });
+        SecureStorage.clearAll();
+        return res;
+      } catch (err) {
+        console.warn("Batch save endpoint not available, falling back to sequential:", err.message);
+        // Fallback: sequential save
+        for (const rec of records) {
+          await this.saveMasterRecord(table, rec);
+        }
+        SecureStorage.clearAll();
+        return { success: true, count: records.length };
+      }
+    },
+
     deleteMasterRecord: async function (table, id, replacementId = null) {
       const res = await request(BASE_URL, {
         method: 'POST',
