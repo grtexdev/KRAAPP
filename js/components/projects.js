@@ -353,8 +353,8 @@ const ProjectsComponent = (function () {
     },
 
     openCreateProjectModal: function () {
-      const bus = State.get().data.businessUnits || [];
-      const users = (State.get().data.users || []).filter(u => u.active);
+      const bus = (State.get().data.businessUnits || []).filter(b => b.active !== false && b.active !== 'false');
+      const users = (State.get().data.users || []).filter(u => u.active !== false && u.active !== 'false');
       const currentUser = State.getUser();
 
       const modalHtml = `

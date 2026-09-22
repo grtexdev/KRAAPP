@@ -11,10 +11,10 @@ const TaskAssignmentComponent = (function () {
     render: function () {
       const kraNodes = State.get().data.kraNodes || [];
       const mainKras = State.get().data.mainKras || [];
-      const users = (State.get().data.users || []).filter(u => u.active);
-      const projects = State.get().data.projects || [];
-      const locations = State.get().data.locations || [];
-      const departments = State.get().data.departments || [];
+      const users = (State.get().data.users || []).filter(u => u.active !== false && u.active !== 'false');
+      const projects = (State.get().data.projects || []).filter(p => p.active !== false && p.active !== 'false');
+      const locations = (State.get().data.locations || []).filter(l => l.active !== false && l.active !== 'false');
+      const departments = (State.get().data.departments || []).filter(d => d.active !== false && d.active !== 'false');
 
       // Filtered KRA items for searchable picker
       const filteredNodes = kraNodes.filter(n => {

@@ -356,9 +356,9 @@ const MyTasksComponent = (function () {
     openSelfLogModal: function () {
       const mainKras = State.get().data.mainKras || [];
       const kraNodes = State.get().data.kraNodes || [];
-      const projects = State.get().data.projects || [];
-      const locations = State.get().data.locations || [];
-      const departments = State.get().data.departments || [];
+      const projects = (State.get().data.projects || []).filter(p => p.active !== false && p.active !== 'false');
+      const locations = (State.get().data.locations || []).filter(l => l.active !== false && l.active !== 'false');
+      const departments = (State.get().data.departments || []).filter(d => d.active !== false && d.active !== 'false');
       const currentUser = State.getUser();
 
       const modalHtml = `
