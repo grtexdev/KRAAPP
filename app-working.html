@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KARYA — Complete Operations Manual & Role Working Guide | Gretex Group</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .role-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+      border-color: #2563eb;
+    }
+    .badge-role-ceo         { background: linear-gradient(135deg, #7e22ce, #a855f7); color: #fff; }
+    .badge-role-admin       { background: linear-gradient(135deg, #dc2626, #ef4444); color: #fff; }
+    .badge-role-hod         { background: linear-gradient(135deg, #4338ca, #6366f1); color: #fff; }
+    .badge-role-manager     { background: linear-gradient(135deg, #0369a1, #0ea5e9); color: #fff; }
+    .badge-role-team_leader { background: linear-gradient(135deg, #0f766e, #14b8a6); color: #fff; }
+    .badge-role-employee    { background: linear-gradient(135deg, #15803d, #22c55e); color: #fff; }
+
+    .glow-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .glow-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: none !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ======================== TOP BAR ======================== -->
+  <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Document Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-blue-500/30">
+          <i class="fa-solid fa-layer-group text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-base font-black tracking-tight text-white">KARYA</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">OPERATIONS MANUAL</span>
+          </div>
+          <span class="text-[11px] text-slate-400 block leading-none">End-to-End System Architecture & Role Guides · Gretex Group</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-3 no-print">
+        <!-- Live App Link -->
+        <a 
+          href="index.html" 
+          class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-sm transition"
+        >
+          <i class="fa-solid fa-arrow-left text-xs"></i>
+          <span>Open Live App</span>
+        </a>
+
+        <!-- Print / PDF Button -->
+        <button 
+          onclick="window.print()" 
+          class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-medium transition"
+          title="Print or Export to PDF"
+        >
+          <i class="fa-solid fa-print"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== HERO SECTION ======================== -->
+  <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-700">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 mb-4">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Official SOP & Role Playbook</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+          How KARYA Works: Complete Workflow & User Guides
+        </h1>
+        <p class="text-base text-slate-300 mt-3 leading-relaxed">
+          KARYA is Gretex Group’s enterprise KRA & KPI Operations Tracking System. It aligns strategic company targets down to daily employee minutes, routes deliverables through named multi-tier approval chains, and derives manpower cost at actual salaries.
+        </p>
+
+        <!-- Search Guide -->
+        <div class="mt-6 relative max-w-lg no-print">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+          <input 
+            type="text" 
+            id="guide-search" 
+            placeholder="Search any topic (e.g. 'CEO', 'Create Project', 'Approvals', 'Costing')..." 
+            class="w-full bg-slate-800/90 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            oninput="filterGuideTopics(this.value)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== QUICK NAV PILLS ======================== -->
+  <div class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2 overflow-x-auto py-2.5 text-xs font-semibold text-slate-600 scrollbar-none">
+        <a href="#role-navigator" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">👑 Role Playbooks</a>
+        <a href="#ceo-masterclass" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">💼 CEO Masterclass</a>
+        <a href="#create-project" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">📁 How to Create Project</a>
+        <a href="#kra-builder" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">🌳 KRA Cascade & Trees</a>
+        <a href="#task-allotment" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">⚡ Task Allotment & Fan-out</a>
+        <a href="#daily-reporting" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">⏱️ Daily Work & Self-Log</a>
+        <a href="#approval-workflow" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">🔄 Approval & Rework Cycle</a>
+        <a href="#costing-formula" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">💰 Manpower Cost Math</a>
+        <a href="#system-arch" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition whitespace-nowrap">⚙️ System Architecture</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== MAIN CONTENT ======================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 flex-1">
+
+    <!-- ==================== SECTION 1: INTERACTIVE ROLE SELECTOR ==================== -->
+    <section id="role-navigator" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Executive Hierarchy & SOPs</span>
+          <h2 class="text-2xl font-black text-slate-900 mt-0.5">Role-by-Role Operations Navigator</h2>
+          <p class="text-sm text-slate-500">Select any role below to view their exact permissions, tab access, and operational responsibilities.</p>
+        </div>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="flex flex-wrap gap-2 no-print">
+        <button onclick="switchRoleView('ceo')" id="btn-role-ceo" class="role-btn active flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-ceo">👑</span>
+          <span>CEO (Rajesh Sharma)</span>
+        </button>
+        <button onclick="switchRoleView('admin')" id="btn-role-admin" class="role-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-admin">🛡️</span>
+          <span>Admin (Arvind Harlalka)</span>
+        </button>
+        <button onclick="switchRoleView('hod')" id="btn-role-hod" class="role-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-hod">🏢</span>
+          <span>HOD (Sunita Roy)</span>
+        </button>
+        <button onclick="switchRoleView('manager')" id="btn-role-manager" class="role-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-manager">👔</span>
+          <span>Manager (Vikram Sen)</span>
+        </button>
+        <button onclick="switchRoleView('team_leader')" id="btn-role-team_leader" class="role-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-team_leader">👥</span>
+          <span>Team Leader (Priya Patel)</span>
+        </button>
+        <button onclick="switchRoleView('employee')" id="btn-role-employee" class="role-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100">
+          <span class="w-5 h-5 rounded-md flex items-center justify-center text-[10px] badge-role-employee">💼</span>
+          <span>Employee (Rahul Verma)</span>
+        </button>
+      </div>
+
+      <!-- Role Details Container (Dynamically toggled) -->
+      <div id="role-details-container" class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: CEO MASTERCLASS ==================== -->
+    <section id="ceo-masterclass" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg badge-role-ceo flex items-center justify-center text-sm font-bold">👑</span>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Executive Deep-Dive</span>
+            <h2 class="text-2xl font-black text-slate-900">CEO Masterclass: Kis Tab Me Kya Karega?</h2>
+          </div>
+        </div>
+        <p class="text-sm text-slate-500 mt-2">
+          As the apex authority of Gretex Group, Rajesh Sharma (CEO) has complete line-of-sight across all business units (GIL, GCS, GSB, Platinumone, Bahutex). Here is the precise tab-by-tab guide for the CEO.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Tab 1: Projects -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">1. Projects Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Strategic Project Creation & Cost Control</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Create New Projects:</strong> Click <code>+ New Project</code> to launch major corporate initiatives (e.g. "Turnover ₹80 Cr Expansion").</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Assign Project Managers:</strong> Delegate ownership of projects to Admins, HODs, or Managers.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Monitor Derived Cost (₹):</strong> Instantly see the actual salary-derived manpower expense burned per project in real-time.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Bulk Matrix Allotment:</strong> Define multiple KRA nodes and batch-allot tasks to entire teams simultaneously.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab 2: KRA Builder -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-sitemap"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">2. KRA Builder Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Define Group Vision & Cascading Hierarchy</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Create Main KRAs:</strong> Define the top-level strategic drivers (e.g. "GIL — Turnover ₹80 Cr & Profit ₹4 Cr FY27").</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Cascade Sub-KRAs:</strong> Break goals down into Sub-KRAs, Tasks, and Sub-tasks with unlimited depth.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Design Mandatory Questions:</strong> Define up to 4 variable questions (e.g. Target Reach, Creative Cost) prompted automatically to assignees.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Assign Hierarchy Owners:</strong> Designate HODs and Managers as accountable owners of specific branches.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab 3: Dashboards & Analytics -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">3. Dashboards Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Executive Cockpit & Live Operations BI</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Group-wide Manpower Hours:</strong> Real-time aggregate of hours worked across all subsidiaries.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Cost by Business Unit:</strong> View which subsidiary (GIL vs GCS vs GSB) is consuming maximum budget.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>WIP vs Completed Deliverables:</strong> Monitor operational velocity and identify stalled milestones.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Rework Rate Metric:</strong> Track work quality — if rework rate exceeds 10%, address departmental training.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab 4: Approvals & Escalations -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-stamp"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">4. Approvals Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Executive Sign-offs & Administrative Override</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Final Step Approver:</strong> Act as the final tier of high-value deliverables (e.g. Brand Campaigns, IPO Filings).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Executive Override:</strong> As CEO, can view and approve ANY stuck deliverable regardless of which manager's queue it is in.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Send for Rework:</strong> Direct feedback with comments when a deliverable fails to meet executive standards.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Drive File Inspection:</strong> Preview attached marketing PDFs, video creatives, and spreadsheets stored in Drive.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab 5: Org Hierarchy -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">5. Org Hierarchy Tree Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Span of Control & Chain of Command</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Company-wide Org Chart:</strong> Expand and collapse the full 6-tier reporting tree from CEO down to junior staff.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Detect Management Gaps:</strong> Identify any employee without a direct reporting superior.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Departmental Breakdown:</strong> Verify that HODs and Team Leaders are supervising appropriate headcounts.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab 6: Master Data -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm glow-card hover:border-purple-300 transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">6. Master Data Tab</h3>
+              <span class="text-xs text-purple-600 font-semibold">Corporate Governance & Salary Oversight</span>
+            </div>
+          </div>
+          <ul class="text-xs text-slate-600 space-y-2 mt-3">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Salary & Payroll Visibility:</strong> Review confidential employee monthly salaries used in manpower calculation.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Business Units Management:</strong> Add or modify corporate subsidiaries (e.g. new AIF funds or retail entities).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-500 mt-0.5"></i>
+              <span><strong>Configure Approval Chains:</strong> Define custom multi-step rules for sensitive strategic outputs.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: HOW TO CREATE A PROJECT ==================== -->
+    <section id="create-project" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Step-by-Step Tutorial</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">How to Create a Project in KARYA</h2>
+        <p class="text-sm text-slate-500">
+          Projects tie together business units, designated team members, and bulk task allotting. Available for <strong>CEO, Admin, HOD, and Managers</strong>.
+        </p>
+      </div>
+
+      <!-- Step Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm relative">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center mb-3">1</span>
+          <h3 class="text-sm font-bold text-slate-900">Open Projects Screen</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Click on <strong>Projects</strong> in the left sidebar navigation.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm relative">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center mb-3">2</span>
+          <h3 class="text-sm font-bold text-slate-900">Click '+ New Project'</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Click the blue button in the top right header next to the project dropdown.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm relative">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center mb-3">3</span>
+          <h3 class="text-sm font-bold text-slate-900">Enter Project Details</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Fill Name, select Business Unit (GIL, GCS, etc.), pick Manager, and check team members.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm relative">
+          <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center mb-3">4</span>
+          <h3 class="text-sm font-bold text-slate-900">Save & Allot Tasks</h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Click <strong>Create Project</strong>. It automatically saves to Google Sheets DB and is immediately selectable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mockup Demonstration -->
+      <div class="bg-slate-900 rounded-2xl p-6 text-white border border-slate-800 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+          <span class="text-xs font-bold text-slate-300"><i class="fa-solid fa-code text-blue-400 mr-1.5"></i> Project Entity Structure</span>
+          <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono">Google Sheets: projects</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+            <span class="text-slate-500 block">// Example Project Record</span>
+            <p><span class="text-blue-400">"id"</span>: <span class="text-amber-300">"prj_turnover_80cr"</span>,</p>
+            <p><span class="text-blue-400">"name"</span>: <span class="text-amber-300">"GIL Turnover ₹80 Cr & Profit ₹4 Cr"</span>,</p>
+            <p><span class="text-blue-400">"businessUnitId"</span>: <span class="text-amber-300">"bu_gil"</span> <span class="text-slate-500">// Gretex Industries</span>,</p>
+            <p><span class="text-blue-400">"managerId"</span>: <span class="text-amber-300">"usr_admin"</span>,</p>
+            <p><span class="text-blue-400">"memberIds"</span>: <span class="text-emerald-400">["usr_hod_mkt", "usr_mgr_mkt", "usr_emp_gd"]</span></p>
+          </div>
+          <div class="text-xs font-sans text-slate-300 space-y-2 p-2">
+            <h4 class="font-bold text-white text-sm">Why Projects Matter in KARYA:</h4>
+            <p>1. <strong>Derived Cost Tracking:</strong> Every task logged under this project contributes its time to the total project budget.</p>
+            <p>2. <strong>Bulk Task Matrix:</strong> Once a project is selected, managers can add 10 rows of KRA nodes and batch-allot them to team members in one click.</p>
+            <p>3. <strong>Executive Line-of-Sight:</strong> CEO and HODs can monitor how many deliverables are Completed, WIP, or pending approval under that specific initiative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: KRA TREE BUILDER & VARIABLE INHERITANCE ==================== -->
+    <section id="kra-builder" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Core Engine</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">KRA Hierarchy Builder & Nearest-Ancestor Inheritance</h2>
+        <p class="text-sm text-slate-500">
+          KRAs in Karya can be nested to <strong>unlimited depth</strong>. Child nodes automatically inherit Variable Fields, Owners, and Approval Chains from parent nodes unless overridden.
+        </p>
+      </div>
+
+      <!-- Interactive Inheritance Diagram -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 class="text-base font-bold text-slate-900">How the "Nearest-Ancestor-Wins" Rule Works</h3>
+        
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 text-xs space-y-3 font-mono">
+          <div class="p-3 bg-white rounded-lg border border-slate-300">
+            <span class="font-bold text-purple-700">🌱 Root: Main KRA (GIL — Turnover ₹80 Cr)</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Owner: Rajesh Sharma (CEO) · Approval Flow: Creative Standard Flow</p>
+          </div>
+          <div class="ml-6 pl-4 border-l-2 border-dashed border-blue-400 p-3 bg-white rounded-lg border border-slate-300">
+            <span class="font-bold text-blue-700">↳ Level 1: Sub-KRA (Marketing & Brand Visibility)</span>
+            <p class="text-slate-500 text-[11px] mt-0.5">Variable Fields Defined: <code>["Campaign Theme", "Target Reach", "Channel", "Cost"]</code></p>
+          </div>
+          <div class="ml-12 pl-4 border-l-2 border-dashed border-emerald-400 p-3 bg-emerald-50 rounded-lg border border-emerald-300">
+            <span class="font-bold text-emerald-800">↳ Level 2: Task (Social Media Creatives & Video)</span>
+            <p class="text-emerald-700 text-[11px] mt-0.5">
+              ✅ <strong>Inherits Variable Questions:</strong> Automatically inherits the 4 questions from Level 1!<br/>
+              ✅ <strong>Inherits Approval Flow:</strong> Automatically routes to Creative Standard Flow from Root!
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-600">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">1. Variable Questions</strong>
+            <span>Up to 4 custom prompts per node. If left blank, automatically walks up the tree to the nearest parent with questions.</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">2. Approval Chains</strong>
+            <span>Assign approval flow at any node. If not set, inherits from parent or Main KRA.</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">3. Accountability Owners</strong>
+            <span>Assign specific Managers or HODs as owners of nodes to establish accountability.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: TASK ALLOTMENT & FAN-OUT ==================== -->
+    <section id="task-allotment" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Distribution Engine</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">Task Allotment & The Fan-Out Mechanism</h2>
+        <p class="text-sm text-slate-500">
+          In corporate operations, assigning 1 KRA to 5 team members should not take 5 manual entries. KARYA features a high-speed <strong>Fan-out Engine</strong>.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-amber-500"></i>
+            <span>The Fan-Out Formula</span>
+          </h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            When allocating a task, you can select <strong>Multiple Assignees</strong> at the same time. The backend automatically creates:
+          </p>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 font-mono text-xs text-blue-700">
+            Total Tasks Created = (Selected KRA Nodes) × (Selected Assignees)
+          </div>
+          <p class="text-xs text-slate-500">
+            Every task created in that batch shares a unique <code>groupId</code> (Batch ID), allowing managers to trace and audit collective output effortlessly.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-file-csv text-emerald-500"></i>
+            <span>Three Ways to Allot Tasks in KARYA</span>
+          </h3>
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li><strong>1. 'Allot Tasks' Tab:</strong> Interactive form with multi-employee fan-out, priority, date, and inherited approval flow.</li>
+            <li><strong>2. 'Projects' Bulk Matrix:</strong> Spreadsheet-like grid to configure 10+ different tasks and assignees at once.</li>
+            <li><strong>3. 'CSV Import' Tab:</strong> Download CSV template, fill rows in Excel, and upload 500 tasks in 5 seconds.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6: DAILY WORK & SELF-LOGGING ==================== -->
+    <section id="daily-reporting" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Employee Execution</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">Daily Reporting, Effort Logging & Self-Log</h2>
+        <p class="text-sm text-slate-500">
+          The <strong>My Tasks</strong> screen is the home screen for every employee (including HODs and Managers performing individual tasks).
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="w-6 h-6 rounded-md bg-blue-600 text-white font-bold flex items-center justify-center text-[10px]">1</span>
+            <h4 class="font-bold text-slate-900">Select Log Date & Enter Minutes</h4>
+            <p class="text-slate-500">Pick any date from the date picker and enter exact minutes worked today (e.g. <code>120</code> for 2 hours). KARYA tracks daily effort over time.</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="w-6 h-6 rounded-md bg-blue-600 text-white font-bold flex items-center justify-center text-[10px]">2</span>
+            <h4 class="font-bold text-slate-900">Answer KRA Variable Fields</h4>
+            <p class="text-slate-500">If the KRA node has custom questions (e.g. "Platform", "Post URL"), answer them directly in the card before saving.</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="w-6 h-6 rounded-md bg-blue-600 text-white font-bold flex items-center justify-center text-[10px]">3</span>
+            <h4 class="font-bold text-slate-900">Update Status & Remarks</h4>
+            <p class="text-slate-500">Set status to <strong>Pending</strong>, <strong>WIP (Work in Progress)</strong>, <strong>Completed</strong>, or <strong>Hold</strong>. If WIP, enter reason in remarks.</p>
+          </div>
+        </div>
+
+        <!-- Self Logging Feature (FR-TA-12) -->
+        <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs space-y-2 text-blue-900">
+          <div class="flex items-center gap-2 font-bold">
+            <i class="fa-solid fa-plus-circle text-blue-600"></i>
+            <span>Self-Logging Unassigned Tasks (FR-TA-12)</span>
+          </div>
+          <p class="text-blue-800">
+            If an employee is asked to perform an ad-hoc emergency task not formally allotted by their manager, they can click <strong>'+ Self-log Task'</strong> on My Tasks. They choose the Project and KRA, log their initial minutes, and the task is immediately recorded and linked to their supervisor for review.
+          </p>
+        </div>
+
+        <!-- Handover Feature (FR-RPT-07) -->
+        <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-2 text-amber-900">
+          <div class="flex items-center gap-2 font-bold">
+            <i class="fa-solid fa-share-nodes text-amber-600"></i>
+            <span>Task Handover & Reassignment (FR-RPT-07)</span>
+          </div>
+          <p class="text-amber-800">
+            If an employee is going on leave or work needs to be shifted, they click the <strong>Reassign</strong> button, select the colleague, and enter <strong>Mandatory Handover Remarks</strong>. An immutable audit trail is saved in the task log.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7: APPROVAL & REWORK LIFECYCLE ==================== -->
+    <section id="approval-workflow" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Quality Assurance</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">Multi-Step Deliverable Approval & Rework Cycle</h2>
+        <p class="text-sm text-slate-500">
+          Deliverables in KARYA (designs, audit sheets, presentations) do not get approved informally. They follow formal, structured Google Drive-backed workflows.
+        </p>
+      </div>
+
+      <!-- Flow Steps -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium">
+          
+          <div class="flex-1 w-full bg-slate-50 p-4 rounded-xl border border-slate-200 text-center space-y-2">
+            <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto font-bold">1</span>
+            <h4 class="font-bold text-slate-900">Employee Submits Deliverable</h4>
+            <p class="text-slate-500 text-[11px]">Uploads PDF/Image/Video (up to 20MB) directly to Google Drive with remarks.</p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right text-slate-400 hidden md:block"></i>
+
+          <div class="flex-1 w-full bg-amber-50 p-4 rounded-xl border border-amber-200 text-center space-y-2">
+            <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto font-bold">2</span>
+            <h4 class="font-bold text-amber-900">Step 1 Approver (e.g. TL / Manager)</h4>
+            <p class="text-amber-800 text-[11px]">Inspects Drive file. Decides: <strong>Approve</strong> (advances) or <strong>Rework</strong> (returns).</p>
+          </div>
+
+          <i class="fa-solid fa-arrow-right text-slate-400 hidden md:block"></i>
+
+          <div class="flex-1 w-full bg-purple-50 p-4 rounded-xl border border-purple-200 text-center space-y-2">
+            <span class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto font-bold">3</span>
+            <h4 class="font-bold text-purple-900">Step 2 Approver (HOD / CEO)</h4>
+            <p class="text-purple-800 text-[11px]">Final sign-off. Once approved at final step, task state becomes <code>Approved</code>.</p>
+          </div>
+        </div>
+
+        <!-- Rework Alert Box -->
+        <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl text-xs space-y-2 text-rose-900">
+          <div class="flex items-center gap-2 font-bold text-rose-800">
+            <i class="fa-solid fa-rotate-left text-rose-600"></i>
+            <span>What Happens When a Deliverable is Marked "Rework"?</span>
+          </div>
+          <ul class="list-disc list-inside space-y-1 text-rose-700">
+            <li>The task status changes to <code>approvalState: "rework"</code> with a bright red banner.</li>
+            <li>The approver’s exact correction remarks are displayed prominently on the employee’s task card.</li>
+            <li>The approval step counter resets to <strong>Step 0</strong>, ensuring the re-done work is vetted again from the start.</li>
+            <li>The rework incident is logged in Dashboards to measure departmental First-Time-Right (FTR) quality.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 8: COSTING FORMULA ==================== -->
+    <section id="costing-formula" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Financial Intelligence</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">Derived Manpower Cost Formula & Line-of-Sight</h2>
+        <p class="text-sm text-slate-500">
+          KARYA computes the precise monetary cost of every task, project, and department based on actual employee monthly remuneration.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-6">
+        
+        <!-- Formula Box -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 text-white text-center space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Official Formula (FR-PRJ-02 / FR-RPT-08)</span>
+          <div class="text-lg sm:text-xl font-mono font-bold text-white tracking-wide">
+            Cost (₹) = (Minutes Logged / 480) × (Monthly Salary / 30)
+          </div>
+          <p class="text-xs text-slate-400 max-w-lg mx-auto">
+            Based on a standard 8-hour workday (480 minutes) and 30 calendar days per billing month.
+          </p>
+        </div>
+
+        <!-- Example Calculation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <h4 class="font-bold text-slate-900">Example 1: Graphic Designer (Rahul Verma)</h4>
+            <p class="text-slate-600">• Monthly Salary: <strong>₹40,000</strong></p>
+            <p class="text-slate-600">• Daily Rate: ₹40,000 / 30 = <strong>₹1,333.33 / day</strong></p>
+            <p class="text-slate-600">• Task Effort: 240 minutes (0.5 day)</p>
+            <p class="text-emerald-700 font-bold">• Derived Task Cost = 0.5 × ₹1,333.33 = <strong>₹666.67</strong></p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <h4 class="font-bold text-slate-900">Confidentiality & Access Line-of-Sight</h4>
+            <p class="text-slate-600">
+              Salary amounts are strictly confidential. In KARYA:
+            </p>
+            <p class="text-slate-600">• 👑 <strong>CEO & 🛡️ Admin:</strong> Can view individual salaries and total monetary cost.</p>
+            <p class="text-slate-600">• 🏢 <strong>HOD:</strong> Can view aggregate departmental manpower spend.</p>
+            <p class="text-slate-600">• 💼 <strong>Employees & TLs:</strong> See only <em>minutes and hours</em> worked, never salary numbers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 9: SYSTEM ARCHITECTURE ==================== -->
+    <section id="system-arch" class="space-y-6 guide-card">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Technical Foundation</span>
+        <h2 class="text-2xl font-black text-slate-900 mt-0.5">System Architecture & Fast Local Caching</h2>
+        <p class="text-sm text-slate-500">
+          KARYA combines the zero-maintenance reliability of Google Workspace with client-side encrypted caching for lightning-fast performance.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-table"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">Google Sheets DB</h4>
+          <p class="text-slate-500">
+            12 normalized relational tables (users, mainKras, kraNodes, tasks, approvalFlows, projects, etc.). Easily auditable by management.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">Google Apps Script API</h4>
+          <p class="text-slate-500">
+            Decoupled backend web service handling CORS, atomic row mutations, fan-out generation, and Google Drive file uploads.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">Encrypted Local Storage</h4>
+          <p class="text-slate-500">
+            Browser-side XOR-encrypted storage ensures sub-50ms screen transitions and seamless offline capability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-slate-200">KARYA — KRA / KPI Operations Tracking System</p>
+        <p class="text-slate-500 mt-0.5">Gretex Group · Prepared for internal management & operational handover</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-blue-400 hover:text-blue-300 font-semibold">Launch Live App →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== INTERACTIVE SCRIPT ======================== -->
+  <script>
+    const ROLE_DATA = {
+      ceo: {
+        title: "CEO — Chief Executive Officer",
+        name: "Rajesh Sharma",
+        badge: "badge-role-ceo",
+        icon: "👑",
+        description: "Supreme line-of-sight across the entire corporate structure. Primary focus: strategic milestones, corporate profit, derived manpower expense, and executive approvals.",
+        tabs: [
+          { name: "Projects", roleAction: "Create group-level projects, assign project managers, and monitor real-time manpower expenditure (₹)." },
+          { name: "KRA Builder", roleAction: "Define root Main KRAs (e.g. ₹80 Cr turnover targets), assign HOD accountability, and lock approval chains." },
+          { name: "Dashboards", roleAction: "Monitor group-wide executive cockpit: total hours worked, cost by business unit, WIP vs Completed, and rework rate." },
+          { name: "Approvals", roleAction: "Provide final executive sign-off on sensitive corporate deliverables; override stuck workflows." },
+          { name: "Org Hierarchy", roleAction: "Inspect company-wide 6-tier reporting tree; identify reporting gaps and span-of-control issues." },
+          { name: "Master Data", roleAction: "Executive oversight of all business units, departments, and confidential employee salary brackets." },
+          { name: "Reports", roleAction: "Export Board-ready utilization and cost audit reports in CSV format." }
+        ]
+      },
+      admin: {
+        title: "Admin — System & Operations Administrator",
+        name: "Arvind Harlalka",
+        badge: "badge-role-admin",
+        icon: "🛡️",
+        description: "Full system administration, master data integrity, onboarding staff, configuring multi-step approval workflows, and performing bulk CSV task imports.",
+        tabs: [
+          { name: "Master Data", roleAction: "Add/edit users, assign reporting superiors, set salary & login PINs, manage locations, departments, and approval flows." },
+          { name: "Projects", roleAction: "Create and configure projects, assign managers, and run Bulk Task Matrix allotting." },
+          { name: "KRA Builder", roleAction: "Structure entire KRA hierarchy tree, manage 4 variable questions, and enforce approval inheritance." },
+          { name: "Task Assignment & CSV Import", roleAction: "Bulk upload hundreds of tasks via CSV; run multi-employee fan-out distributions." },
+          { name: "Approvals", roleAction: "Manage approval chains; act as administrative backup approver for any stalled deliverable." },
+          { name: "Dashboards & Reports", roleAction: "Full visibility of all system metrics, user productivity, and audit logs." }
+        ]
+      },
+      hod: {
+        title: "HOD — Head of Department",
+        name: "Sunita Roy (Marketing)",
+        badge: "badge-role-hod",
+        icon: "🏢",
+        description: "Departmental owner. Translates corporate goals into departmental KRAs, oversees managers and teams, signs off on deliverables, and audits department cost.",
+        tabs: [
+          { name: "KRA Builder", roleAction: "Build department-specific Sub-KRAs and define variable questions for team members." },
+          { name: "Approvals", roleAction: "Review and approve deliverables submitted by managers and employees; send back for rework if quality is low." },
+          { name: "Task Assignment", roleAction: "Assign high-priority tasks to team leaders and managers with deadlines and priorities." },
+          { name: "Projects", roleAction: "Track departmental projects, team effort hours, and verify resource allocation." },
+          { name: "Dashboards", roleAction: "Inspect departmental effort breakdown, task completion rate, and rework percentages." },
+          { name: "My Tasks", roleAction: "Log own daily minutes for personal strategic responsibilities." }
+        ]
+      },
+      manager: {
+        title: "Manager — Project & Functional Line Manager",
+        name: "Vikram Sen",
+        badge: "badge-role-manager",
+        icon: "👔",
+        description: "Direct project management, team coordination, task allotment, daily monitoring, step-1 deliverable quality approvals.",
+        tabs: [
+          { name: "Projects", roleAction: "Manage assigned projects, use Bulk Task Matrix Builder to allot multiple tasks to team members." },
+          { name: "Task Assignment", roleAction: "Allot tasks to Team Leaders and individual contributors using fan-out." },
+          { name: "Approvals", roleAction: "Act as Tier-1 Approver: check file attachments in Google Drive, verify variable answers, approve or request rework." },
+          { name: "My Tasks", roleAction: "Record daily time, status, and deliverables for manager-level tasks." },
+          { name: "Dashboards", roleAction: "Track assigned project timelines, team member workloads, and WIP bottlenecks." }
+        ]
+      },
+      team_leader: {
+        title: "Team Leader — Team Supervisor",
+        name: "Priya Patel",
+        badge: "badge-role-team_leader",
+        icon: "👥",
+        description: "Day-to-day team supervision, distributing daily workloads, reassigning bottlenecked tasks, and verifying daily employee logs.",
+        tabs: [
+          { name: "Task Assignment", roleAction: "Distribute tasks to team members; set priority levels (Urgent, High, Normal)." },
+          { name: "My Tasks", roleAction: "Log daily work hours, answer variable questions, and submit deliverables." },
+          { name: "Approvals", roleAction: "Preliminary peer-review of deliverables before HOD sign-off." },
+          { name: "Org Hierarchy", roleAction: "View direct reporting lines and supervise team status." }
+        ]
+      },
+      employee: {
+        title: "Employee — Individual Contributor",
+        name: "Rahul Verma (Graphic Designer)",
+        badge: "badge-role-employee",
+        icon: "💼",
+        description: "Core execution. Logs daily minutes, answers KRA variable prompts, uploads deliverables to Google Drive, self-logs ad-hoc work, and handles rework.",
+        tabs: [
+          { name: "My Tasks", roleAction: "Primary workspace: select date, log daily minutes, answer KRA questions, update status (WIP/Completed), and click 'Save Report'." },
+          { name: "Submit Deliverable", roleAction: "Upload files (images, PDFs, videos) to Google Drive and submit for multi-tier management approval." },
+          { name: "Self-Log Task", roleAction: "Initiate spontaneous or ad-hoc work using '+ Self-log Task' without waiting for prior allotment." },
+          { name: "Reassign Task", roleAction: "Handover tasks to colleagues with mandatory handover remarks." },
+          { name: "Approvals", roleAction: "Check approval progress of submitted deliverables; view supervisor rework remarks." },
+          { name: "Projects & Hierarchy", roleAction: "View project milestones and company organizational structure." }
+        ]
+      }
+    };
+
+    function switchRoleView(roleKey) {
+      const data = ROLE_DATA[roleKey];
+      if (!data) return;
+
+      // Update button states
+      document.querySelectorAll('.role-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.add('bg-white', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById('btn-role-' + roleKey);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.classList.remove('bg-white', 'text-slate-700');
+      }
+
+      // Render content
+      const container = document.getElementById('role-details-container');
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-100 pb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-12 h-12 rounded-2xl ${data.badge} flex items-center justify-center text-xl font-bold shadow-md">
+                ${data.icon}
+              </span>
+              <div>
+                <h3 class="text-xl font-bold text-slate-900">${data.title}</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Demo User: <strong>${data.name}</strong> · PIN: <code>1234</code></p>
+              </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+              Role: ${roleKey.toUpperCase()}
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+            ${data.description}
+          </p>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Tab-by-Tab Working SOP</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              ${data.tabs.map(t => `
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-blue-300 transition">
+                  <span class="text-xs font-bold text-blue-600 block mb-1">
+                    <i class="fa-solid fa-folder-open text-[11px] mr-1"></i> ${t.name} Tab
+                  </span>
+                  <p class="text-xs text-slate-600">${t.roleAction}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Live search filter
+    function filterGuideTopics(query) {
+      const q = (query || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('.guide-card');
+      cards.forEach(card => {
+        if (!q) {
+          card.style.display = '';
+          return;
+        }
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    // Initialize with CEO view on load
+    document.addEventListener('DOMContentLoaded', () => {
+      switchRoleView('ceo');
+    });
+  </script>
+</body>
+</html>
